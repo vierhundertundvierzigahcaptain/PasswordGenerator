@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="styles.css" />
+<body align="center">
+  <br />
+  <span id="passwordResult">"Result will be here"</span>
+  <button id="copyButton" onclick="copyToClipboard()">Copy</button>
+  <br />
+  <div>
+    <p id="timeToCrackP">Time to crack using brute force: <span id="timeToCrack">0 sec</span></p>
+  </div>
+  <br /><br /><br /><br />
+  <div id="generateFunctional">
+    <div id="chooseLengthDiv">
+      <p id="chooseLengthP">Choose password length:</p>
+      <input
+        type="range"
+        value="20"
+        min="1"
+        max="50"
+        oninput="this.nextElementSibling.value = this.value"
+      />
+      <output id="passwordLength">20</output>
+      <br /><br />
+      <button id="passwordGenerate" onclick="generatePassword()">
+        Generate Password
+      </button>
+    </div>
+    <div id="checkboxes">
+      <input type="checkbox" id="addLowercase" checked />
+      <label>Lowercase</label>
+      <input type="checkbox" id="addUppercase" checked />
+      <label>Uppercase</label>
+      <input type="checkbox" id="addNumbers" checked />
+      <label>Numbers</label>
+      <input type="checkbox" id="addSymbols" checked />
+      <label>Symbols</label>
+    </div>
+  </div>
+</body>
+
+<script src="main.js"></script>
