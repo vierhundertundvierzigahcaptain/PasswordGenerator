@@ -1,12 +1,12 @@
 function generatePassword() {
-    var charset = "";
-    var password = "";
-    var passwordLength = document.getElementById("passwordLength").value;
-    var addLowercase = document.getElementById("addLowercase");
-    var addUppercase = document.getElementById("addUppercase");
-    var addNumbers = document.getElementById("addNumbers");
-    var addSymbols = document.getElementById("addSymbols");
-    var paragraph = document.getElementById("passwordResult");
+    let charset = "";
+    let password = "";
+    let passwordLength = document.getElementById("passwordLength").value;
+    let addLowercase = document.getElementById("addLowercase");
+    let addUppercase = document.getElementById("addUppercase");
+    let addNumbers = document.getElementById("addNumbers");
+    let addSymbols = document.getElementById("addSymbols");
+    let paragraph = document.getElementById("passwordResult");
 
     if (addLowercase.checked) {
         charset += "abcdefghijklmnopqrstuvwxyz";
@@ -29,26 +29,26 @@ function generatePassword() {
         return;
     }
 
-    for (var i = 0; i < passwordLength; i++) {
-        var randomIndex = Math.floor(Math.random() * charset.length);
+    for (let i = 0; i < passwordLength; i++) {
+        let randomIndex = Math.floor(Math.random() * charset.length);
         password += charset.charAt(randomIndex);
     }
 
     paragraph.textContent = password;
 
-    timeToCrack(charset, passwordLength)
+    timeToCrack(charset, passwordLength);
 }
 
 function timeToCrack(charset, passwordLength) {
-    var charsetLength = charset.length;
-    var paragraph = document.getElementById("timeToCrack");
-    var unit = "sec"
+    let charsetLength = charset.length;
+    let paragraph = document.getElementById("timeToCrack");
+    let unit = "sec";
 
     // ryzen 5 5600x - like a most popular CPU
-    var cpuCombinationsPerSec = 15750000
+    let cpuCombinationsPerSec = 15750000;
 
     // time in seconds
-    var time = (charsetLength ** passwordLength) / cpuCombinationsPerSec
+    let time = (charsetLength ** passwordLength) / cpuCombinationsPerSec;
 
     if (time > 60) {
         const conversions = [
@@ -72,16 +72,16 @@ function timeToCrack(charset, passwordLength) {
     }
 
     if (time >= 1000 && unit == "billion years") {
-        paragraph.textContent = "inf"
-        return
+        paragraph.textContent = "inf";
+        return;
     }
 
-    time = time.toFixed(2)
+    time = time.toFixed(2);
 
     paragraph.textContent = time + " " + unit;
 }
 
 function copyToClipboard() {
-    var password = document.getElementById("passwordResult").innerText;
+    let password = document.getElementById("passwordResult").innerText;
     navigator.clipboard.writeText(password);
 }

@@ -12,7 +12,7 @@ function createWindow() {
     });
 
     win.setMenuBarVisibility(false);
-    win.setTitle('PasswordGenerator')
+    win.setTitle('PasswordGenerator');
     win.loadFile('src/index.html');
 }
 
